@@ -11,9 +11,6 @@ $(document).ready(function(){
         type: "POST",
         data: $(form).serialize(),
         success: function(data){
-          console.log(data);
-          console.log(form);
-          console.log(target_url)
           // $("#layout_cont").fadeOut(400);
           $("#eval_cont").html(data);
           
