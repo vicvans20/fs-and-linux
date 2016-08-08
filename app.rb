@@ -36,8 +36,8 @@ end
 get '/ch_4' do
   @title = "GNU/Linux"
   erb :_ch_layout do
-    @next = "/ch_3"
-    @prev = "/ch_5"
+    @next = "/ch_5"
+    @prev = "/ch_3"
     erb :ch_4
   end
 end
