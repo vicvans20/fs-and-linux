@@ -21,7 +21,7 @@ $(document).ready(function(){
     $("#timer_word_finder").addClass("text-success");
     clearInterval(timerInterval);
   }
-  var words = ['Thunderbird'];
+  var words = ['Thunderbird', 'Firefox','Gimp','LibreOffice','Clementine'];
   var games = wordfindgame.create(words, '#juego', '#Palabras', {}, stopTimer); 
    
   var puz = wordfind.newPuzzle(words,{height: 18, width:18, fillBlanks: false});
