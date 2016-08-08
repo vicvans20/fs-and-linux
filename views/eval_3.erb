@@ -2,6 +2,31 @@
 <small class="text-muted">Encuentra los 8 nombres de programas ocultos en la sopa de letras.</small>
 <hr>
 <form id="form_eval_3">
+
+ <link rel="stylesheet" type="text/css" href="style.css">
+    <script language="javascript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script> 
+    <script type="text/javascript" src="wordfind.js"></script> 
+    <script type="text/javascript" src="wordfindgame.js"></script>
+   
+</head>
+
+<div id='juego'></div>
+    <div id='Palabras'></div>
+    
+    <div><button id='solve'>Resolver el juego</button></div>
+    <script>
+    var words = ['Firefox','Thunderbird','Linux'];
+    var games = wordfindgame.create(words, '#juego', '#Palabras'); 
+     
+    var puz = wordfind.newPuzzle(words,{height: 18, width:18, fillBlanks: false});
+    wordfind.print(puz);   
+        
+    $('#solve').click( function() {wordfindgame.solve(games, words);});
+        
+    </script>
+</body>
+</html>
+
   <button type="submit">Siguiente</button>
 </form>
 <script type="text/javascript">
