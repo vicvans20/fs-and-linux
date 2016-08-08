@@ -94,7 +94,7 @@ end
 post '/eval_final' do
   cookies[:eval_5] = eval_5(params[:tinput].to_i)
   cookies[:eval_5_time] = params[:tinput]
-  @results = eval_final(cookies[:eval_1], cookies[:eval_2], cookies[:eval_3] ,cookies[:eval_4],cookies[:eval_5])
+  @results = eval_final(cookies[:eval_1].to_i, cookies[:eval_2].to_i, cookies[:eval_3].to_i ,cookies[:eval_4].to_i,cookies[:eval_5].to_i)
   erb :eval_result, layout: false
 end
 
@@ -162,7 +162,8 @@ def eval_final(ev1, ev2, ev3, ev4, ev5)
     result = "C - Hay que esforzarnos más."
   when 5..9
     result = "D - Deficiente"
-  when 0..4
+  else
     result = "E - Reprobado.."
   end
+  return result
 end
