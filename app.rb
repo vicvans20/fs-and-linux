@@ -45,7 +45,7 @@ end
 get '/ch_5' do
   @title = "Distribuciones Linux"
   erb :_ch_layout do
-    @next = "/ch_6"
+    @next = "/test"
     @prev = "/ch_4"
     erb :ch_5
   end
