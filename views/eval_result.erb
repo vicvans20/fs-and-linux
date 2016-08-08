@@ -2,11 +2,11 @@
 <small class="text-muted">Resultados por cada test</small>
 <hr>
 <ul>
-  <li>Software Libre (Selección Multiple) - <%= session[:eval_1] %> correctas de 4.</li>
-  <li>Software Libre y Código Abierto (Emparejamiento) - <%= session[:eval_2] %> correctas de 3.</li>
-  <li>Mundo de Software Libre (Sopa de Letras) - <%= session[:eval_3_time] %> segundos.</li>
-  <li>GNU/Linux (Verdadero o Falso) - <%= session[:eval_4] %> correctas de 5.</li>
-  <li>Distribuciones de Linux (Selección Multiple) - <%= session[:eval_5_time] %> segundos.</li>
+  <li>Software Libre (Selección Multiple) - <%= cookies[:eval_1] %> correctas de 4.</li>
+  <li>Software Libre y Código Abierto (Emparejamiento) - <%= cookies[:eval_2] %> correctas de 3.</li>
+  <li>Mundo de Software Libre (Sopa de Letras) - <%= cookies[:eval_3_time] %> segundos.</li>
+  <li>GNU/Linux (Verdadero o Falso) - <%= cookies[:eval_4] %> correctas de 5.</li>
+  <li>Distribuciones de Linux (Selección Multiple) - <%= cookies[:eval_5_time] %> segundos.</li>
 </ul>
 <div class="align-center">
   <button id="show_results" class="btn btn-primary">Mostrar Resultado Final</button>
