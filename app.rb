@@ -78,6 +78,8 @@ end
 
 # True and False
 post '/eval_4' do
+  session[:eval_3] = eval_3(params[:tinput].to_i)
+  session[:eval_3_time] = params[:tinput]
   erb :eval_4, layout: false
 end
 
@@ -91,7 +93,7 @@ end
 post '/eval_final' do
   session[:eval_5] = eval_5(params[:tinput].to_i)
   session[:eval_5_time] = params[:tinput]
-  @results = eval_final(session[:eval_1], session[:eval_2], 4 ,session[:eval_4],session[:eval_5])
+  @results = eval_final(session[:eval_1], session[:eval_2], session[:eval_3] ,session[:eval_4],session[:eval_5])
   erb :eval_result, layout: false
 end
 
@@ -113,6 +115,18 @@ def eval_2(data)
   return points
 end
 
+def eval_3(segs)
+  case segs
+  when 0..120
+    points = 4
+  when 121..240
+    points = 2
+  else
+    points = 1
+  end
+  return points
+end
+
 def eval_4(data)
   points = 0
   points +=1 if data[:selectionOne] == "option1"
@@ -122,6 +136,7 @@ def eval_4(data)
   points +=1 if data[:selectionFive] == "option2"
   return points
 end
+
 
 def eval_5(segs)
   case segs

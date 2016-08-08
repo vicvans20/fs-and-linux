@@ -18,6 +18,7 @@
 
     // List of words for this game
     var wordList;
+    var callbackF = null;
 
     /**
     * Draws the puzzle by inserting rows of buttons into el.
@@ -216,6 +217,7 @@
 
         if (wordList.length === 0) {
           $('.puzzleSquare').addClass('complete');
+          callbackF();
         }
       }
 
@@ -261,11 +263,12 @@
       * @param {String} puzzleEl: Selector to use when inserting the puzzle
       * @param {String} wordsEl: Selector to use when inserting the word list
       * @param {Options} options: WordFind options to use when creating the puzzle
+      * Added callback to call function when puzzle has been solved manually.
       */
-      create: function(words, puzzleEl, wordsEl, options) {
-        
-        wordList = words.slice(0).sort();
+      create: function(words, puzzleEl, wordsEl, options, callbackFct) {
 
+        wordList = words.slice(0).sort();
+        callbackF = callbackFct;
         var puzzle = wordfind.newPuzzle(words, options);
 
         // draw out all of the words
@@ -317,7 +320,6 @@
             $('.' + word).addClass('wordFound');
           }
         }
-
       }
     };
   };
