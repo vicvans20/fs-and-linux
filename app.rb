@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'byebug'
-enable :sessions
+require "sinatra/cookies"
+# enable :sessions
 
 get '/' do
   erb :index
@@ -66,34 +67,34 @@ end
 
 # Drag and drop the matching term
 post '/eval_2' do
-  session[:eval_1] = eval_1(params)
+  cookies[:eval_1] = eval_1(params)
   erb :eval_2 , layout: false
 end
 
 # Alphabet Soup
 post '/eval_3' do
-  session[:eval_2] = eval_2(params)
+  cookies[:eval_2] = eval_2(params)
   erb :eval_3, layout: false
 end
 
 # True and False
 post '/eval_4' do
-  session[:eval_3] = eval_3(params[:tinput].to_i)
-  session[:eval_3_time] = params[:tinput]
+  cookies[:eval_3] = eval_3(params[:tinput].to_i)
+  cookies[:eval_3_time] = params[:tinput]
   erb :eval_4, layout: false
 end
 
 # Puzzle
 post '/eval_5' do
-  session[:eval_4] = eval_4(params)
+  cookies[:eval_4] = eval_4(params)
   @img = "os#{[1,2,3,5,6].sample}"
   erb :eval_5, layout: false
 end
 
 post '/eval_final' do
-  session[:eval_5] = eval_5(params[:tinput].to_i)
-  session[:eval_5_time] = params[:tinput]
-  @results = eval_final(session[:eval_1], session[:eval_2], session[:eval_3] ,session[:eval_4],session[:eval_5])
+  cookies[:eval_5] = eval_5(params[:tinput].to_i)
+  cookies[:eval_5_time] = params[:tinput]
+  @results = eval_final(cookies[:eval_1], cookies[:eval_2], cookies[:eval_3] ,cookies[:eval_4],cookies[:eval_5])
   erb :eval_result, layout: false
 end
 
