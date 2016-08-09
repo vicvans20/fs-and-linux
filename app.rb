@@ -52,6 +52,10 @@ get '/ch_5' do
   end
 end
 
+get '/acerca_de' do
+  erb :about
+end
+
 get '/test' do
   erb :test_intro
 end
